@@ -1,0 +1,21 @@
+{
+    "name": "caspersdk",
+    "version": "1.0.0",
+    "description":
+        "C++ library to interact with the Casper Network nodes via RPC",
+    "homepage": "https://github.com/matterfi/casper-cpp-sdk",
+    "dependencies": [
+        "boost-variant",
+        "brotli",
+        "cryptopp",
+        "magic-enum",
+        "openssl",
+        "otcommon",
+        "spdlog",
+        "zlib",
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        }
+    ]
+}
