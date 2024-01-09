@@ -1,0 +1,31 @@
+{
+    "name": "matterfirpc",
+    "version": "0.1.0",
+    "port-version": 0,
+    "dependencies": [
+        "boost-algorithm",
+        "boost-asio",
+        "boost-beast",
+        "boost-core",
+        "boost-coroutine",
+        "boost-exception",
+        "boost-foreach",
+        "boost-multi-index",
+        "boost-multiprecision",
+        "boost-optional",
+        "boost-process",
+        "boost-property-tree",
+        "boost-system",
+        "caspersdk",
+        "cryptopp",
+        "libsodium",
+        "magic-enum",
+        "otcommon",
+        "secp256k1",
+        "spdlog",
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        }
+    ]
+}
