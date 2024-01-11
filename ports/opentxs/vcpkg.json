@@ -1,0 +1,86 @@
+{
+    "name": "opentxs",
+    "version": "1.189.2",
+    "port-version": 0,
+    "description":
+        "The Open-Transactions project is a collaborative effort to develop a robust, commercial-grade, fully-featured, free-software toolkit implementing the OTX protocol as well as a full-strength financial cryptography library, API, CLI, and prototype server. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the Open-Transactions toolkit and its related documentation.",
+    "homepage": "https://opentransactions.org",
+    "features": {
+        "qt6": {
+            "description": "Link to Qt6",
+            "dependencies": [
+                "qtbase",
+                "qtdeclarative"
+            ]
+        },
+        "matterfi": {
+            "description": "Enable MatterFi features"
+        }
+    },
+    "dependencies": [
+        "boost-algorithm",
+        {
+            "name": "boost-asio",
+            "features": [
+                "ssl"
+            ]
+        },
+        "boost-beast",
+        "boost-circular-buffer",
+        "boost-container",
+        "boost-date-time",
+        "boost-dynamic-bitset",
+        "boost-endian",
+        "boost-interprocess",
+        "boost-intrusive",
+        "boost-iostreams",
+        "boost-json",
+        "boost-move",
+        "boost-multiprecision",
+        "boost-program-options",
+        "boost-smart-ptr",
+        "boost-stacktrace",
+        "boost-system",
+        "boost-thread",
+        "boost-type-index",
+        "boost-unordered",
+        "cmakerc",
+        "gtest",
+        "libguarded",
+        "libsodium",
+        "lmdb",
+        "openssl",
+        {
+            "name": "otcommon",
+            "version>=": "2.0.0"
+        },
+        "protobuf",
+        {
+            "name": "pthread",
+            "platform": "windows"
+        },
+        {
+            "name": "qtbase",
+            "default-features": false,
+            "features": [
+                "gui"
+            ]
+        },
+        "qtdeclarative",
+        "secp256k1",
+        "simpleini",
+        "sqlite3",
+        "tbb",
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "zeromq",
+            "features": [
+                "sodium"
+            ]
+        },
+        "zlib"
+    ]
+}
