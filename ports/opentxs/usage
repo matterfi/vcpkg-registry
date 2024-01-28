@@ -1,0 +1,4 @@
+proj provides CMake targets:
+
+    find_package(opentxs CONFIG REQUIRED)
+    target_link_libraries(example PRIVATE opentxs::libopentxs)

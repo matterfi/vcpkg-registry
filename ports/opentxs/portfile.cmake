@@ -1,9 +1,14 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/libopentxs")
-set(OPENTXS_COMMIT "d14dd3f4fed300b41e6c2d7c38f79cd266c6fffd")
+set(OPENTXS_COMMIT "8b85ba7014a23e11dc27104537e5649c0b1265ae")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.190.0-0-gd14dd3f4fe")
+set(OT_VERSION_STRING "1.190.1-0-g8b85ba7014")
 
-find_program(GIT git git.cmd NO_CMAKE_FIND_ROOT_PATH)
+find_program(
+  GIT
+  git
+  git.cmd
+  NO_CMAKE_FIND_ROOT_PATH
+)
 
 if(GIT-NOTFOUND)
   message(FATAL_ERROR "git not found.")
@@ -63,17 +68,10 @@ vcpkg_execute_in_download_mode(
   --recursive
 )
 
-file(READ "${SOURCE_PATH}/tools/cmake/libopentxs-find-dependencies.cmake"
-     FIND_DEPENDENCIES_VCPKG_WORKAROUND)
-file(READ "${SOURCE_PATH}/tools/cmake/opentxsConfig.cmake.in"
-     CASPERSDK_CONFIG_VCPKG_WORKAROUND)
-string(REPLACE "include(libopentxs-find-dependencies)"
-               "${FIND_DEPENDENCIES_VCPKG_WORKAROUND}" VCPKG_IS_BROKEN
-               "${CASPERSDK_CONFIG_VCPKG_WORKAROUND}")
-file(WRITE "${SOURCE_PATH}/tools/cmake/opentxsConfig.cmake.in"
-     "${VCPKG_IS_BROKEN}")
-
-if("qt6" IN_LIST FEATURES)
+if("qt6"
+   IN_LIST
+   FEATURES
+)
   set(OPENTXS_USE_QT ON)
   set(OPENTXS_QT_VERSION_MAJOR 6)
 endif()
@@ -81,7 +79,10 @@ endif()
 set(OPENTXS_ENABLE_NONFREE OFF)
 set(OPENTXS_ENABLE_MATTERFI OFF)
 
-if("matterfi" IN_LIST FEATURES)
+if("matterfi"
+   IN_LIST
+   FEATURES
+)
   set(OPENTXS_ENABLE_NONFREE ON)
   set(OPENTXS_ENABLE_MATTERFI ON)
 endif()
@@ -89,8 +90,8 @@ endif()
 vcpkg_cmake_configure(
   SOURCE_PATH
   "${SOURCE_PATH}"
-  DISABLE_PARALLEL_CONFIGURE
   OPTIONS
+  -DCMAKE_INSTALL_PREFIX="${CURRENT_PACKAGES_DIR}"
   -DOPENTXS_BUILD_TESTS=OFF
   -DOPENTXS_PEDANTIC_BUILD=OFF
   -DOT_CRYPTO_SUPPORTED_KEY_RSA=ON
@@ -102,16 +103,19 @@ vcpkg_cmake_configure(
   -DOT_ENABLE_MATTERFI=${OPENTXS_ENABLE_MATTERFI}
   -DOT_USE_VCPKG_TARGETS=ON
   -DOT_BOOST_JSON_HEADER_ONLY=OFF
+  -DOT_INSTALL_LIBRARY_DEPENDENCIES=OFF
   -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
   OPTIONS_RELEASE
   -DOPENTXS_DEBUG_BUILD=OFF
+  -DOT_INSTALL_HEADERS=ON
+  -DOT_INSTALL_LICENSE=ON
+  -DOT_INSTALL_PROTOBUF=ON
   -DOT_LICENSE_FILE_NAME=copyright
   OPTIONS_DEBUG
   -DOPENTXS_DEBUG_BUILD=ON
   -DOT_INSTALL_HEADERS=OFF
   -DOT_INSTALL_LICENSE=OFF
-  -DOT_HEADER_INSTALL_PATH=../include
-  -DOT_CMAKE_INSTALL_PATH=${CURRENT_PACKAGES_DIR}/share/${PORT}/cmake
+  -DOT_INSTALL_PROTOBUF=OFF
 )
 
 vcpkg_cmake_install()
