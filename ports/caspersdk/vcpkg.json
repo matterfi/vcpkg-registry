@@ -1,6 +1,6 @@
 {
     "name": "caspersdk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "port-version": 4,
     "description":
         "C++ library to interact with the Casper Network nodes via RPC",
@@ -11,11 +11,18 @@
         "cryptopp",
         "magic-enum",
         "openssl",
-        "otcommon",
+        {
+            "name": "otcommon",
+            "version>=": "3.0.0"
+        },
         "spdlog",
         "zlib",
         {
             "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
             "host": true
         }
     ]

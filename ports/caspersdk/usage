@@ -1,0 +1,4 @@
+proj provides CMake targets:
+
+    find_package(CasperSDK CONFIG REQUIRED)
+    target_link_libraries(example PRIVATE CasperSDK::casper_sdk)

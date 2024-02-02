@@ -6,28 +6,19 @@ vcpkg_from_github(
   REPO
   matterfi/casper-cpp-sdk
   REF
-  c580d34aff9892dde7fac54306c16735d270eb82
+  1aeee9a5ad33688dde464e67c7f34c3f9dd25e20
   SHA512
-  b3bb24f98d257309b8bb1bd8bb1e825822889b819c898b5a18b5f0fc5031ac3b4bfc2de415e20610259e8ffe6ddd3e04313e99de9fbf4cbbf00fd8109a099053
+  bb9c0bdef278b6168452ba78cae0bf37fedf8dd83337bbafedea85fac3488e84eb3943cadd660224be191de3c956036ce81b242da994bd644bb75eae4cd58b6d
   HEAD_REF
-  main)
-
-file(READ "${SOURCE_PATH}/tools/cmake/caspersdk-find-dependencies.cmake"
-     FIND_DEPENDENCIES_VCPKG_WORKAROUND)
-file(READ "${SOURCE_PATH}/tools/cmake/CasperSDKConfig.cmake.in"
-     CASPERSDK_CONFIG_VCPKG_WORKAROUND)
-string(REPLACE "include(caspersdk-find-dependencies)"
-               "${FIND_DEPENDENCIES_VCPKG_WORKAROUND}" VCPKG_IS_BROKEN
-               "${CASPERSDK_CONFIG_VCPKG_WORKAROUND}")
-file(WRITE "${SOURCE_PATH}/tools/cmake/CasperSDKConfig.cmake.in"
-     "${VCPKG_IS_BROKEN}")
+  main
+)
 
 vcpkg_cmake_configure(
   SOURCE_PATH
   "${SOURCE_PATH}"
-  DISABLE_PARALLEL_CONFIGURE
   OPTIONS
   -DCASPERSDK_BUILD_TESTS=OFF
+  -DCASPERSDK_MULTICONFIG=OFF
   OPTIONS_RELEASE
   -DCASPERSDK_DEBUG_BUILD=OFF
   -DCASPERSDK_INSTALL_LICENSE=ON
@@ -37,7 +28,17 @@ vcpkg_cmake_configure(
   -DCASPERSDK_PEDANTIC_BUILD=OFF
   -DCASPERSDK_INSTALL_HEADERS=OFF
   -DCASPERSDK_INSTALL_LICENSE=OFF
-  -DCASPERSDK_HEADER_INSTALL_PATH=../include
-  -DCASPERSDK_CMAKE_INSTALL_PATH=${CURRENT_PACKAGES_DIR}/share/CasperSDK/cmake)
+)
 
 vcpkg_cmake_install()
+
+vcpkg_cmake_config_fixup(
+  PACKAGE_NAME
+  "CasperSDK"
+  NO_PREFIX_CORRECTION
+)
+
+file(
+  INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage"
+  DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}"
+)
