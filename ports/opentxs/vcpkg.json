@@ -1,7 +1,7 @@
 {
     "name": "opentxs",
-    "version": "1.190.1",
-    "port-version": 1,
+    "version": "1.190.2",
+    "port-version": 0,
     "description":
         "The Open-Transactions project is a collaborative effort to develop a robust, commercial-grade, fully-featured, free-software toolkit implementing the OTX protocol as well as a full-strength financial cryptography library, API, CLI, and prototype server. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the Open-Transactions toolkit and its related documentation.",
     "homepage": "https://opentransactions.org",
@@ -58,7 +58,7 @@
         "openssl",
         {
             "name": "otcommon",
-            "version>=": "2.0.0"
+            "version>=": "3.0.0"
         },
         "protobuf",
         {
@@ -71,6 +71,10 @@
         "tbb",
         {
             "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
             "host": true
         },
         {
