@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "port-version": 0,
     "dependencies": [
         "boost-algorithm",
@@ -9,6 +9,7 @@
         "boost-core",
         "boost-coroutine",
         "boost-exception",
+        "boost-filesystem",
         "boost-foreach",
         "boost-multi-index",
         "boost-multiprecision",
@@ -16,15 +17,25 @@
         "boost-process",
         "boost-property-tree",
         "boost-system",
-        "caspersdk",
+        {
+            "name": "caspersdk",
+            "version>=": "1.0.1#4"
+        },
         "cryptopp",
         "libsodium",
         "magic-enum",
-        "otcommon",
+        {
+            "name": "otcommon",
+            "version>=": "3.0.0"
+        },
         "secp256k1",
         "spdlog",
         {
             "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
             "host": true
         }
     ]

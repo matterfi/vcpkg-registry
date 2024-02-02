@@ -1,0 +1,4 @@
+proj provides CMake targets:
+
+    find_package(MatterFiRPC CONFIG REQUIRED)
+    target_link_libraries(example PRIVATE MatterFiRPC::matterfirpc)

@@ -6,24 +6,13 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/matterfirpc.git
   REF
-  77b660cbb69bc00bb0af7cae716a18f949c234ba
+  9295d9af510f073a9489d71bb862d77145dfdc59
   HEAD_REF
   master)
-
-file(READ "${SOURCE_PATH}/tools/cmake/matterfirpc-find-dependencies.cmake"
-     FIND_DEPENDENCIES_VCPKG_WORKAROUND)
-file(READ "${SOURCE_PATH}/tools/cmake/MatterFiRPCConfig.cmake.in"
-     MATTERFIRPC_CONFIG_VCPKG_WORKAROUND)
-string(REPLACE "include(matterfirpc-find-dependencies)"
-               "${FIND_DEPENDENCIES_VCPKG_WORKAROUND}" VCPKG_IS_BROKEN
-               "${MATTERFIRPC_CONFIG_VCPKG_WORKAROUND}")
-file(WRITE "${SOURCE_PATH}/tools/cmake/MatterFiRPCConfig.cmake.in"
-     "${VCPKG_IS_BROKEN}")
 
 vcpkg_cmake_configure(
   SOURCE_PATH
   "${SOURCE_PATH}"
-  DISABLE_PARALLEL_CONFIGURE
   OPTIONS
   -DMATTERFIRPC_BUILD_TESTS=OFF
   -DMATTERFIRPC_PEDANTIC_BUILD=OFF
@@ -35,7 +24,17 @@ vcpkg_cmake_configure(
   -DMATTERFIRPC_DEBUG_BUILD=ON
   -DMATTERFIRPC_INSTALL_HEADERS=OFF
   -DMATTERFIRPC_INSTALL_LICENSE=OFF
-  -DMATTERFIRPC_HEADER_INSTALL_PATH=../include
-  -DMATTERFIRPC_CMAKE_INSTALL_PATH=${CURRENT_PACKAGES_DIR}/share/MatterFiRPC/cmake)
+)
 
 vcpkg_cmake_install()
+
+vcpkg_cmake_config_fixup(
+  PACKAGE_NAME
+  "MatterFiRPC"
+  NO_PREFIX_CORRECTION
+)
+
+file(
+  INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage"
+  DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}"
+)
