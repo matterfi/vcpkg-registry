@@ -1,7 +1,7 @@
 {
     "name": "matterfirpc",
     "version": "0.2.0",
-    "port-version": 0,
+    "port-version": 1,
     "dependencies": [
         "boost-algorithm",
         "boost-asio",
@@ -22,7 +22,10 @@
             "version>=": "1.0.1#4"
         },
         "cryptopp",
-        "libsodium",
+        {
+            "name": "libsodium",
+            "version>=": "1.0.19#2"
+        },
         "magic-enum",
         {
             "name": "otcommon",
