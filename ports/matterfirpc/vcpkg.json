@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "port-version": 1,
     "dependencies": [
         "boost-algorithm",
@@ -17,14 +17,11 @@
         "boost-process",
         "boost-property-tree",
         "boost-system",
-        {
-            "name": "caspersdk",
-            "version>=": "1.0.1#4"
-        },
+        "caspersdk",
         "cryptopp",
         {
             "name": "libsodium",
-            "version>=": "1.0.19#2"
+            "version>=": "1.0.19#4"
         },
         "magic-enum",
         {
