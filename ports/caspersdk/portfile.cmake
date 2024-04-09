@@ -6,9 +6,7 @@ vcpkg_from_github(
   REPO
   matterfi/casper-cpp-sdk
   REF
-  250de31cab4bd98801d1fde5179769d45c7eeace
-  SHA512
-  7adfb3631fb936e9ed458d52601cf3dbd7ecf299aa36af485f911dff29c05877b8d3db2d50df51489ec26600edec214ea78191b6e38d5ef0ac1dd12e48fda204
+  f4d4d981eba5bebf0ae35bd47040419ff1a0b0b3
   HEAD_REF
   main
 )
