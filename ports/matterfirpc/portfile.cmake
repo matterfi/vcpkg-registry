@@ -8,7 +8,7 @@ vcpkg_from_git(
   REF
   d6138c6ea430b4e9104f027c6ce1623d6a5a93a1
   HEAD_REF
-  release-0.2)
+  master)
 
 vcpkg_cmake_configure(
   SOURCE_PATH
