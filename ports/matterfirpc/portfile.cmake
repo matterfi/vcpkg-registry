@@ -6,9 +6,9 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/matterfirpc.git
   REF
-  d6138c6ea430b4e9104f027c6ce1623d6a5a93a1
+  aa761ed51374a2e64cede8f69e68f931678625cb
   HEAD_REF
-  master)
+  release-0.2)
 
 vcpkg_cmake_configure(
   SOURCE_PATH
