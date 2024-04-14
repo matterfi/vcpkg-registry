@@ -1,7 +1,7 @@
 {
     "name": "caspersdk",
     "version": "1.0.3",
-    "port-version": 0,
+    "port-version": 1,
     "description":
         "C++ library to interact with the Casper Network nodes via RPC",
     "homepage": "https://github.com/matterfi/casper-cpp-sdk",
