@@ -1,10 +1,10 @@
 set(VCPKG_POLICY_EMPTY_INCLUDE_FOLDER enabled)
 
-vcpkg_from_github(
+vcpkg_from_git(
   OUT_SOURCE_PATH
   SOURCE_PATH
-  REPO
-  matterfi/casper-cpp-sdk
+  URL
+  ssh://git@github.com/matterfi/casper-cpp-sdk.git
   REF
   f4d4d981eba5bebf0ae35bd47040419ff1a0b0b3
   HEAD_REF
