@@ -6,7 +6,7 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/matterfirpc.git
   REF
-  072a747014121050355bfcbf605044af022482ed
+  8f8b4d55419142e8df2b01d1ab84b5b37fdaac1d
   HEAD_REF
   release-0.2)
 
