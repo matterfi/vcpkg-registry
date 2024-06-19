@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "3a59a9bd2e19ace8e2c6ceb606b307c9193d6022")
+set(OPENTXS_COMMIT "b977d54ef9ca17ff96e0c47cc66252cb54cf302b")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.195.1-0-g3a59a9bd2e")
+set(OT_VERSION_STRING "1.195.2-0-gb977d54ef9")
 
 find_program(
   GIT
@@ -104,6 +104,8 @@ vcpkg_cmake_configure(
   -DOT_BOOST_JSON_HEADER_ONLY=OFF
   -DOT_INSTALL_LIBRARY_DEPENDENCIES=OFF
   -DOT_MULTICONFIG=OFF
+  -DCMAKE_C_COMPILER=clang-cl.exe
+  -DCMAKE_CXX_COMPILER=clang-cl.exe
   -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
   OPTIONS_RELEASE
   -DOPENTXS_DEBUG_BUILD=OFF
