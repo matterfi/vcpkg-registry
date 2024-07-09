@@ -87,7 +87,7 @@ if("matterfi"
   set(OPENTXS_ENABLE_MATTERFI ON)
 endif()
 
-if(VCPKG_TARGET_IS_APPLE OR VCPKG_TARGET_IS_ANDROID)
+if(APPLE OR ANDROID)
   set(OT_USE_PSTL OFF)
   set(OT_WITH_TBB OFF)
 else()
@@ -95,7 +95,7 @@ else()
   set(OT_WITH_TBB OFF)
 endif()
 
-if(VCPKG_TARGET_IS_WIN32)
+if(WIN32)
   vcpkg_cmake_configure(
     SOURCE_PATH
     "${SOURCE_PATH}"
