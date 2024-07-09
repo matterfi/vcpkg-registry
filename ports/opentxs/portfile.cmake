@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "424b2ffecc30fc050ff3e613e60cb0af1f00a73b")
+set(OPENTXS_COMMIT "d780f4f8f41c5bb3a3b8e2becc7388b08e03403e")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.197.0-0-g424b2ffec")
+set(OT_VERSION_STRING "1.198.0-0-gd780f4f8f")
 
 find_program(
   GIT
@@ -87,7 +87,7 @@ if("matterfi"
   set(OPENTXS_ENABLE_MATTERFI ON)
 endif()
 
-if(APPLE OR ANDROID)
+if(VCPKG_TARGET_IS_APPLE OR VCPKG_TARGET_IS_ANDROID)
   set(OT_USE_PSTL OFF)
   set(OT_WITH_TBB OFF)
 else()
@@ -95,7 +95,7 @@ else()
   set(OT_WITH_TBB OFF)
 endif()
 
-if(WIN32)
+if(VCPKG_TARGET_IS_WIN32)
   vcpkg_cmake_configure(
     SOURCE_PATH
     "${SOURCE_PATH}"
