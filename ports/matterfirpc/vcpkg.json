@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "port-version": 0,
     "dependencies": [
         "boost-algorithm",
