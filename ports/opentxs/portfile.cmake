@@ -68,12 +68,32 @@ vcpkg_execute_in_download_mode(
   --recursive
 )
 
-if("qt6"
-   IN_LIST
-   FEATURES
+set(OPENTXS_QT_DIR "")
+set(OPENTXS_QT6_DIR "")
+set(OPENTXS_USE_QT OFF)
+
+if(("qt6"
+    IN_LIST
+    FEATURES)
+   OR ("external-qt6"
+       IN_LIST
+       FEATURES)
 )
   set(OPENTXS_USE_QT ON)
   set(OPENTXS_QT_VERSION_MAJOR 6)
+endif()
+
+if("external-qt6"
+   IN_LIST
+   FEATURES
+)
+  if(NOT DEFINED ENV{EXTERNAL_QT_DIR})
+    message(FATAL_ERROR "EXTERNAL_QT_DIR must be defined")
+  endif()
+
+  cmake_path(SET OPENTXS_QT_PATH NORMALIZE $ENV{EXTERNAL_QT_DIR})
+  set(OPENTXS_QT_DIR "-DQT_DIR=${OPENTXS_QT_PATH}\\lib\\cmake\\Qt6")
+  set(OPENTXS_QT6_DIR "-DQt6_DIR=${OPENTXS_QT_PATH}\\lib\\cmake\\Qt6")
 endif()
 
 set(OPENTXS_ENABLE_NONFREE OFF)
@@ -119,6 +139,8 @@ if(WIN32)
     -DCMAKE_C_COMPILER=clang-cl.exe
     -DCMAKE_CXX_COMPILER=clang-cl.exe
     -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
+    "${OPENTXS_QT_DIR}"
+    "${OPENTXS_QT6_DIR}"
     OPTIONS_RELEASE
     -DOPENTXS_DEBUG_BUILD=OFF
     -DOT_INSTALL_HEADERS=ON
@@ -153,6 +175,8 @@ else()
     -DOT_MULTICONFIG=OFF
     -DOT_PCH=OFF
     -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
+    "${OPENTXS_QT_DIR}"
+    "${OPENTXS_QT6_DIR}"
     OPTIONS_RELEASE
     -DOPENTXS_DEBUG_BUILD=OFF
     -DOT_INSTALL_HEADERS=ON
