@@ -6,7 +6,7 @@
         },
         "opentxs": {
             "baseline": "1.203.2",
-            "port-version": 3
+            "port-version": 4
         },
         "matterfirpc": {
             "baseline": "0.2.9",
