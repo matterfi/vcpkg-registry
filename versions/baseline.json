@@ -1,5 +1,13 @@
 {
     "default": {
+        "boost-container": {
+            "baseline": "1.85.0",
+            "port-version": 100
+        },
+        "boost-move": {
+            "baseline": "1.85.0",
+            "port-version": 99
+        },
         "caspersdk": {
             "baseline": "1.0.3",
             "port-version": 1
