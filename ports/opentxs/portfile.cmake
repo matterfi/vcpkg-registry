@@ -92,8 +92,9 @@ if("external-qt6"
   endif()
 
   cmake_path(SET OPENTXS_QT_PATH NORMALIZE $ENV{EXTERNAL_QT_DIR})
-  set(OPENTXS_QT_DIR "-DQT_DIR=${OPENTXS_QT_PATH}\\lib\\cmake\\Qt6")
-  set(OPENTXS_QT6_DIR "-DQt6_DIR=${OPENTXS_QT_PATH}\\lib\\cmake\\Qt6")
+  set(OPENTXS_QT_DIR "-DQT_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6")
+  set(OPENTXS_QT6_DIR "-DQt6_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6")
+  message(STATUS "using external Qt located at ${OPENTXS_QT_DIR}")
 endif()
 
 set(OPENTXS_ENABLE_NONFREE OFF)
