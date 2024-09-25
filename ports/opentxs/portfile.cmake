@@ -95,6 +95,12 @@ if("external-qt6"
   set(OPENTXS_QT_DIR "-DQT_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6")
   set(OPENTXS_QT6_DIR "-DQt6_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6")
   message(STATUS "using external Qt located at ${OPENTXS_QT_DIR}")
+
+  if(CMAKE_CROSSCOMPILING)
+    cmake_path(SET OPENTXS_QT_HOST_PATH NORMALIZE $ENV{QT_HOST_PATH})
+    set(OPENTXS_QT_CROSSCOMPILING "-DQT_HOST_PATH=OPENTXS_QT_HOST_PATH")
+    message(STATUS "using host Qt located at ${OPENTXS_QT_HOST_PATH}")
+  endif()
 endif()
 
 vcpkg_check_features(
@@ -131,6 +137,7 @@ if(WIN32)
     -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
     "${OPENTXS_QT_DIR}"
     "${OPENTXS_QT6_DIR}"
+    "${OPENTXS_QT_CROSSCOMPILING}"
     OPTIONS_RELEASE
     -DOPENTXS_DEBUG_BUILD=OFF
     -DOT_INSTALL_HEADERS=ON
@@ -164,6 +171,7 @@ else()
     -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
     "${OPENTXS_QT_DIR}"
     "${OPENTXS_QT6_DIR}"
+    "${OPENTXS_QT_CROSSCOMPILING}"
     OPTIONS_RELEASE
     -DOPENTXS_DEBUG_BUILD=OFF
     -DOT_INSTALL_HEADERS=ON
