@@ -1,36 +1,105 @@
 {
     "name": "matterfirpc",
     "version": "0.2.14",
-    "port-version": 0,
+    "port-version": 1,
     "dependencies": [
-        "boost-algorithm",
-        "boost-asio",
-        "boost-beast",
-        "boost-core",
-        "boost-coroutine",
-        "boost-exception",
-        "boost-filesystem",
-        "boost-foreach",
-        "boost-multi-index",
-        "boost-multiprecision",
-        "boost-optional",
-        "boost-process",
-        "boost-property-tree",
-        "boost-system",
-        "caspersdk",
-        "cryptopp",
-        "gtest",
+        {
+            "name": "boost-algorithm",
+            "default-features": false
+        },
+        {
+            "name": "boost-asio",
+            "default-features": false,
+            "features": [
+                "ssl"
+            ]
+        },
+        {
+            "name": "boost-assert",
+            "default-features": false
+        },
+        {
+            "name": "boost-beast",
+            "default-features": false
+        },
+        {
+            "name": "boost-core",
+            "default-features": false
+        },
+        {
+            "name": "boost-coroutine",
+            "default-features": false
+        },
+        {
+            "name": "boost-exception",
+            "default-features": false
+        },
+        {
+            "name": "boost-foreach",
+            "default-features": false
+        },
+        {
+            "name": "boost-iterator",
+            "default-features": false
+        },
+        {
+            "name": "boost-multi-index",
+            "default-features": false
+        },
+        {
+            "name": "boost-multiprecision",
+            "default-features": false
+        },
+        {
+            "name": "boost-optional",
+            "default-features": false
+        },
+        {
+            "name": "boost-process",
+            "default-features": false
+        },
+        {
+            "name": "boost-property-tree",
+            "default-features": false
+        },
+        {
+            "name": "boost-system",
+            "default-features": false
+        },
+        {
+            "name": "caspersdk",
+            "default-features": false
+        },
+        {
+            "name": "cryptopp",
+            "default-features": false
+        },
+        {
+            "name": "gtest",
+            "default-features": false
+        },
         {
             "name": "libsodium",
+            "default-features": false,
             "version>=": "1.0.19#4"
         },
-        "magic-enum",
+        {
+            "name": "magic-enum",
+            "default-features": false
+        },
         {
             "name": "otcommon",
-            "version>=": "3.0.0"
+            "version>=": "3.1.2",
+            "default-features": false
         },
-        "secp256k1",
-        "spdlog",
+        {
+            "name": "secp256k1",
+            "default-features": false
+        },
+        {
+            "name": "spdlog",
+            "default-features": false
+        },
         {
             "name": "vcpkg-cmake",
             "host": true
