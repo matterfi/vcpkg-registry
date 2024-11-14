@@ -89,20 +89,14 @@ if("external-qt6" IN_LIST FEATURES)
   endif()
 
   cmake_path(SET OPENTXS_QT_PATH NORMALIZE $ENV{EXTERNAL_QT_DIR})
-  set(OPENTXS_QT_DIR "-DQT_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6")
-  set(OPENTXS_QT6_DIR "-DQt6_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6")
-  set(OPENTXS_Qt6BundledFreetype_DIR "-DQt6BundledFreetype_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6BundledFreetype")
-  set(OPENTXS_Qt6BundledHarfbuzz_DIR "-DQt6BundledHarfbuzz_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6BundledHarfbuzz")
-  set(OPENTXS_Qt6BundledLibjpeg_DIR "-DQt6BundledLibjpeg_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6BundledLibjpeg")
-  set(OPENTXS_Qt6BundledLibpng_DIR "-DQt6BundledLibpng_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6BundledLibpng")
-  set(OPENTXS_Qt6BundledPcre2_DIR "-DQt6BundledPcre2_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6BundledPcre2")
-  set(OPENTXS_Qt6Core_DIR "-DQt6Core_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6Core")
-  set(OPENTXS_Qt6Gui_DIR "-DQt6Gui_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6Gui")
-  set(OPENTXS_Qt6HostInfo_DIR "-DQt6HostInfo_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6HostInfo")
-  set(OPENTXS_Qt6Network_DIR "-DQt6Network_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6Network")
-  set(OPENTXS_Qt6QmlBuiltins_DIR "-DQt6QmlBuiltins_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6QmlBuiltins")
-  set(OPENTXS_Qt6QmlIntegration_DIR "-DQt6QmlIntegration_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6QmlIntegration")
-  set(OPENTXS_Qt6Qml_DIR "-DQt6Qml_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6Qml")
+  file(GLOB QT_CMAKE_DIRS LIST_DIRECTORIES true "${OPENTXS_QT_PATH}/lib/cmake/*")
+  set(QT_CMAKE_VARS -DQT_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6\"\ \"-DQT6_DIR=${OPENTXS_QT_PATH}/lib/cmake/Qt6)
+  foreach(QT_CMAKE_DIR IN LISTS QT_CMAKE_DIRS)
+    string(FIND ${QT_CMAKE_DIR} "/" POS REVERSE)
+    math(EXPR BEGIN "${POS} + 1")
+    string(SUBSTRING ${QT_CMAKE_DIR} ${BEGIN} -1 DIR_NAME)
+    string(APPEND QT_CMAKE_VARS \"\ \"-D${DIR_NAME}_DIR=${QT_CMAKE_DIR})
+  endforeach()
   message(STATUS "using external Qt located at ${OPENTXS_QT_DIR}")
 
   if(VCPKG_CROSSCOMPILING)
@@ -156,20 +150,7 @@ vcpkg_cmake_configure(
   ${OPENTXS_CXX_COMPILER}
   -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
   "${OPENTXS_PROTOBUF_PROTOC_EXECUTABLE}"
-  "${OPENTXS_QT_DIR}"
-  "${OPENTXS_QT6_DIR}"
-  "${OPENTXS_Qt6BundledFreetype_DIR}"
-  "${OPENTXS_Qt6BundledHarfbuzz_DIR}"
-  "${OPENTXS_Qt6BundledLibjpeg_DIR}"
-  "${OPENTXS_Qt6BundledLibpng_DIR}"
-  "${OPENTXS_Qt6BundledPcre2_DIR}"
-  "${OPENTXS_Qt6Core_DIR}"
-  "${OPENTXS_Qt6Gui_DIR}"
-  "${OPENTXS_Qt6HostInfo_DIR}"
-  "${OPENTXS_Qt6Network_DIR}"
-  "${OPENTXS_Qt6QmlBuiltins_DIR}"
-  "${OPENTXS_Qt6QmlIntegration_DIR}"
-  "${OPENTXS_Qt6Qml_DIR}"
+  ${QT_CMAKE_VARS}
   "${OPENTXS_QT_CROSSCOMPILING}"
   "${OPENTXS_TARGET_IS_IOS}"
   OPTIONS_RELEASE
