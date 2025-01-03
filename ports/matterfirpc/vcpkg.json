@@ -1,7 +1,18 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.17",
+    "version": "0.2.18",
     "port-version": 0,
+    "features": {
+        "test": {
+            "description": "Build tests",
+            "dependencies": [
+                {
+                    "name": "gtest",
+                    "default-features": false
+                }
+            ]
+        }
+    },
     "dependencies": [
         {
             "name": "boost-algorithm",
@@ -15,23 +26,7 @@
             ]
         },
         {
-            "name": "boost-assert",
-            "default-features": false
-        },
-        {
             "name": "boost-beast",
-            "default-features": false
-        },
-        {
-            "name": "boost-core",
-            "default-features": false
-        },
-        {
-            "name": "boost-coroutine",
-            "default-features": false
-        },
-        {
-            "name": "boost-exception",
             "default-features": false
         },
         {
@@ -39,19 +34,7 @@
             "default-features": false
         },
         {
-            "name": "boost-iterator",
-            "default-features": false
-        },
-        {
-            "name": "boost-multi-index",
-            "default-features": false
-        },
-        {
             "name": "boost-multiprecision",
-            "default-features": false
-        },
-        {
-            "name": "boost-optional",
             "default-features": false
         },
         {
@@ -60,6 +43,10 @@
         },
         {
             "name": "boost-property-tree",
+            "default-features": false
+        },
+        {
+            "name": "boost-stacktrace",
             "default-features": false
         },
         {
@@ -75,10 +62,6 @@
             "default-features": false
         },
         {
-            "name": "gtest",
-            "default-features": false
-        },
-        {
             "name": "libsodium",
             "default-features": false,
             "version>=": "1.0.19#4"
@@ -89,7 +72,6 @@
         },
         {
             "name": "otcommon",
-            "version>=": "3.1.2",
             "default-features": false
         },
         {
