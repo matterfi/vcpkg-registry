@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.18",
+    "version": "0.2.19",
     "port-version": 0,
     "features": {
         "test": {
