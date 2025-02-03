@@ -1,8 +1,18 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.19",
+    "version": "0.2.20",
     "port-version": 0,
     "features": {
+        "deploy": {
+            "description": "Implement Contract::deploy",
+            "dependencies": [
+                {
+                    "name": "boost-process",
+                    "default-features": false,
+                    "platform": "!(android | ios)"
+                }
+            ]
+        },
         "test": {
             "description": "Build tests",
             "dependencies": [
@@ -13,6 +23,12 @@
             ]
         }
     },
+    "default-features": [
+        {
+            "name": "deploy",
+            "platform": "!(android | ios)"
+        }
+    ],
     "dependencies": [
         {
             "name": "boost-algorithm",
@@ -39,7 +55,8 @@
         },
         {
             "name": "boost-process",
-            "default-features": false
+            "default-features": false,
+            "platform": "!(android | ios)"
         },
         {
             "name": "boost-property-tree",

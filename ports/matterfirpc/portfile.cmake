@@ -6,9 +6,15 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/matterfirpc.git
   REF
-  bbabf520e9ed34f165de45838778eb69e9a3554f
+  96238439bab97342218763606809011c8219c784
   HEAD_REF
   release-0.2)
+
+vcpkg_check_features(
+  OUT_FEATURE_OPTIONS FEATURE_OPTIONS
+  FEATURES
+    deploy   MATTERFIRPC_ENABLE_DEPLOY
+)
 
 vcpkg_cmake_configure(
   SOURCE_PATH
@@ -16,6 +22,7 @@ vcpkg_cmake_configure(
   OPTIONS
   -DMATTERFIRPC_BUILD_TESTS=OFF
   -DMATTERFIRPC_PEDANTIC_BUILD=OFF
+  ${FEATURE_OPTIONS}
   OPTIONS_RELEASE
   -DMATTERFIRPC_DEBUG_BUILD=OFF
   -DMATTERFIRPC_INSTALL_LICENSE=ON
