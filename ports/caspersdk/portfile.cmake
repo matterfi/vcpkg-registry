@@ -6,7 +6,7 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/casper-cpp-sdk.git
   REF
-  f4d4d981eba5bebf0ae35bd47040419ff1a0b0b3
+  c12012689e6c802a6b0bfcb40ff6236a95f35b97
   HEAD_REF
   main
 )
