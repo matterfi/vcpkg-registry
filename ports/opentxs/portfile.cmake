@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "f1aff775d8e2b5002b0a98c43a69f8d326081c51")
+set(OPENTXS_COMMIT "11ea9582ad48fb3cec0b8a6b56ec7af7d79c23e6")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.233.0-0-gf1aff775d8")
+set(OT_VERSION_STRING "1.234.1-0-g11ea9582ad")
 
 find_program(
   GIT
@@ -117,6 +117,7 @@ endif()
 vcpkg_check_features(
     OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
+        botan    OT_CRYPTO_USING_BOTAN
         matterfi OT_ENABLE_MATTERFI
         pstl     OT_USE_PSTL
         rpc      OT_ENABLE_RPC
