@@ -72,6 +72,13 @@ set(OPENTXS_QT_DIR "")
 set(OPENTXS_QT6_DIR "")
 set(OPENTXS_USE_QT OFF)
 
+if("noparallel" IN_LIST FEATURES)
+  if(("tbb" IN_LIST FEATURES) OR ("pstl" IN_LIST FEATURES))
+    message(
+      FATAL_ERROR "parallel features and noparallel are mutually exclusive")
+  endif()
+endif()
+
 if(("qt6"
     IN_LIST
     FEATURES)
