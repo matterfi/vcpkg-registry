@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.36",
+    "version": "0.2.37",
     "port-version": 0,
     "features": {
         "deploy": {
