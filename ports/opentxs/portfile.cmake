@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "934d8c1d2311ccbb787a2fc46ebad87f93a418d4")
+set(OPENTXS_COMMIT "30e7f2bc4396051e14769410b21f654b72937fc7")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.247.0-0-g934d8c1d23")
+set(OT_VERSION_STRING "1.248.1-0-g30e7f2bc43")
 
 find_program(
   GIT
@@ -44,6 +44,14 @@ else()
     "${SOURCE_PATH}"
   )
 endif()
+
+vcpkg_execute_in_download_mode(
+  COMMAND
+  "${GIT}"
+  -C
+  "${SOURCE_PATH}"
+  fetch --all --tags
+)
 
 file(REMOVE_RECURSE "${SOURCE_PATH}/cmake")
 file(REMOVE_RECURSE "${SOURCE_PATH}/deps")
