@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "1a0db39ec66898affc809e111c6bc8d936a63e4a")
+set(OPENTXS_COMMIT "fdbecb4ff8e281558920b70b2354b081b1a39b7b")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.249.0-0-g1a0db39ec6")
+set(OT_VERSION_STRING "1.250.0-0-gfdbecb4ff8")
 
 find_program(
   GIT
@@ -132,12 +132,16 @@ endif()
 vcpkg_check_features(
     OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
-        botan    OT_CRYPTO_USING_BOTAN
-        matterfi OT_ENABLE_MATTERFI
-        pstl     OT_USE_PSTL
-        rpc      OT_ENABLE_RPC
-        test     OPENTXS_BUILD_TESTS
-        tbb      OT_WITH_TBB
+        botan-crypto    OT_CRYPTO_USING_BOTAN
+        botan-tls       OT_NET_USING_BOTAN
+        matterfi        OT_ENABLE_MATTERFI
+        openssl-crypto  OT_CRYPTO_USING_OPENSSL
+        openssl-crypto  OT_CRYPTO_SUPPORTED_KEY_RSA
+        openssl-tls     OT_NET_USING_OPENSSL
+        pstl            OT_USE_PSTL
+        rpc             OT_ENABLE_RPC
+        test            OPENTXS_BUILD_TESTS
+        tbb             OT_WITH_TBB
 )
 
 vcpkg_cmake_configure(
@@ -145,7 +149,6 @@ vcpkg_cmake_configure(
   "${SOURCE_PATH}"
   OPTIONS
   -DOPENTXS_PEDANTIC_BUILD=OFF
-  -DOT_CRYPTO_SUPPORTED_KEY_RSA=ON
   -DOT_CASH_USING_LUCRE=OFF
   -DOT_SCRIPT_USING_CHAI=OFF
   -DOT_WITH_QT=${OPENTXS_USE_QT}
