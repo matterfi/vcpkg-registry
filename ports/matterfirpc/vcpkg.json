@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.37",
+    "version": "0.2.39",
     "port-version": 0,
     "features": {
         "deploy": {
@@ -12,6 +12,9 @@
                     "platform": "!(android | ios)"
                 }
             ]
+        },
+        "privacy-cash": {
+            "description": "Enable privacy cash support"
         },
         "test": {
             "description": "Build tests",
