@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "c5a7b20baa1065ec223ffe40077d40bb30941f69")
+set(OPENTXS_COMMIT "abc029e729140995a1bcf03308f798cba22660c4")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.253.3-0-gc5a7b20baa")
+set(OT_VERSION_STRING "1.254.0-0-gabc029e729")
 
 find_program(
   GIT
@@ -138,6 +138,8 @@ vcpkg_check_features(
         openssl-crypto  OT_CRYPTO_USING_OPENSSL
         openssl-crypto  OT_CRYPTO_SUPPORTED_KEY_RSA
         openssl-tls     OT_NET_USING_OPENSSL
+        pqc             OT_CRYPTO_SUPPORTED_KEY_MLDSA
+        pqc             OT_CRYPTO_SUPPORTED_KEY_MLKEM
         pstl            OT_USE_PSTL
         rpc             OT_ENABLE_RPC
         test            OPENTXS_BUILD_TESTS
