@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "b0c917d028be97bdd63f58d2f2a096a125352809")
+set(OPENTXS_COMMIT "8e24b94ef889769c2a8545d16b11740184134701")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.255.1-0-gb0c917d028")
+set(OT_VERSION_STRING "1.255.2-0-g8e24b94ef8")
 
 find_program(
   GIT
