@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "ssh://git@github.com/matterfi/opentxs")
-set(OPENTXS_COMMIT "b0c917d028be97bdd63f58d2f2a096a125352809")
+set(OPENTXS_COMMIT "081859ea831bd1f2e0cc3e01c3455a729e8c322c")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.255.1-0-gb0c917d028")
+set(OT_VERSION_STRING "1.255.3-0-g081859ea83")
 
 find_program(
   GIT
@@ -75,6 +75,23 @@ vcpkg_execute_in_download_mode(
   --init
   --recursive
 )
+
+if("test" IN_LIST FEATURES)
+ vcpkg_execute_in_download_mode(
+   COMMAND
+   "${GIT}"
+   -C
+   "${SOURCE_PATH}"
+   submodule
+   update
+   --init
+   --recursive
+   --checkout
+   --
+   data/ottest/blockchain/cashtoken
+   data/ottest/blockchain/ethereum
+ )
+endif()
 
 set(OPENTXS_QT_DIR "")
 set(OPENTXS_QT6_DIR "")
@@ -150,6 +167,7 @@ vcpkg_cmake_configure(
   SOURCE_PATH
   "${SOURCE_PATH}"
   OPTIONS
+  -DOPENTXS_GIT=OFF
   -DOPENTXS_PEDANTIC_BUILD=OFF
   -DOT_CASH_USING_LUCRE=OFF
   -DOT_SCRIPT_USING_CHAI=OFF
