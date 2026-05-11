@@ -21,7 +21,7 @@
             "port-version": 0
         },
         "matterfirpc": {
-            "baseline": "0.2.54",
+            "baseline": "0.2.55",
             "port-version": 0
         }
     }
