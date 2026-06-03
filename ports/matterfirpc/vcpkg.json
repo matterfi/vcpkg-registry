@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.57",
+    "version": "0.2.58",
     "port-version": 0,
     "features": {
         "deploy": {
@@ -74,10 +74,6 @@
             "default-features": false
         },
         {
-            "name": "caspersdk",
-            "default-features": false
-        },
-        {
             "name": "cryptopp",
             "default-features": false
         },
@@ -88,6 +84,10 @@
         },
         {
             "name": "magic-enum",
+            "default-features": false
+        },
+        {
+            "name": "nlohmann-json",
             "default-features": false
         },
         {
