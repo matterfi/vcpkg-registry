@@ -76,6 +76,19 @@ vcpkg_execute_in_download_mode(
   --recursive
 )
 
+if(VCPKG_TARGET_IS_EMSCRIPTEN OR VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  file(
+    COPY_FILE
+    "${CMAKE_CURRENT_LIST_DIR}/Filesystem.internal.wasm.cpp"
+    "${SOURCE_PATH}/src/opentxs/util/storage/driver/Filesystem.internal.wasm.cpp"
+  )
+  file(
+    COPY_FILE
+    "${CMAKE_CURRENT_LIST_DIR}/ZeroMQ.internal.wasm.cpp"
+    "${SOURCE_PATH}/src/opentxs/util/log/backend/ZeroMQ.internal.cpp"
+  )
+endif()
+
 if("test" IN_LIST FEATURES)
  vcpkg_execute_in_download_mode(
    COMMAND
@@ -146,6 +159,16 @@ if(VCPKG_TARGET_IS_IOS)
   set(OPENTXS_TARGET_IS_IOS "-DOPENTXS_TARGET_IS_IOS=ON")
 endif()
 
+if(VCPKG_TARGET_IS_EMSCRIPTEN OR VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+  string(APPEND VCPKG_CXX_FLAGS " -fexceptions")
+  set(OPENTXS_EMSCRIPTEN_OPTIONS
+    -DOT_WITH_BLOCKCHAIN=OFF
+    -DOT_STORAGE_LMDB=OFF
+    -DOT_STORAGE_SQLITE=OFF
+    -DOT_STORAGE_FS=ON
+  )
+endif()
+
 vcpkg_check_features(
     OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
@@ -182,6 +205,7 @@ vcpkg_cmake_configure(
   -DOPENTXS_HIDE_SYMBOLS=ON
   -DOT_ENABLE_MODULE=OFF
   -DOPENTXS_STANDALONE=ON
+  ${OPENTXS_EMSCRIPTEN_OPTIONS}
   ${FEATURE_OPTIONS}
   -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
   "${OPENTXS_PROTOBUF_PROTOC_EXECUTABLE}"
