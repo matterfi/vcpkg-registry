@@ -6,7 +6,7 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/matterfirpc.git
   REF
-  9d8728aed518bc14e3c49ab7391daa91a666f85a
+  7423a2fcfd9d84b2083211992a5c2e7fdcc603ce
   HEAD_REF
   master)
 
@@ -46,3 +46,4 @@ file(
   INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage"
   DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}"
 )
+
