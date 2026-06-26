@@ -2,7 +2,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL https://github.com/matterfi/libcput.git
-  REF 41fc747ee09effa234407cc175c0fb57ea99a52c
+  REF cdd03ff4672453346464ccaaa977857232d27529
   HEAD_REF main
 )
 
