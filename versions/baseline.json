@@ -16,6 +16,10 @@
             "baseline": "1.0.4",
             "port-version": 0
         },
+        "libcput": {
+            "baseline": "0.2.0",
+            "port-version": 0
+        },
         "opentxs": {
             "baseline": "1.264.0",
             "port-version": 0
