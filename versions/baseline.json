@@ -1,32 +1,32 @@
 {
-    "default": {
-        "boost-container": {
-            "baseline": "1.85.0",
-            "port-version": 100
-        },
-        "boost-move": {
-            "baseline": "1.85.0",
-            "port-version": 99
-        },
-        "botan": {
-            "baseline": "3.7.1",
-            "port-version": 1
-        },
-        "caspersdk": {
-            "baseline": "1.0.4",
-            "port-version": 0
-        },
-        "libcput": {
-            "baseline": "0.2.0",
-            "port-version": 0
-        },
-        "opentxs": {
-            "baseline": "1.265.2",
-            "port-version": 0
-        },
-        "matterfirpc": {
-            "baseline": "0.2.60",
-            "port-version": 0
-        }
+  "default": {
+    "boost-container": {
+      "baseline": "1.85.0",
+      "port-version": 100
+    },
+    "boost-move": {
+      "baseline": "1.85.0",
+      "port-version": 99
+    },
+    "botan": {
+      "baseline": "3.7.1",
+      "port-version": 1
+    },
+    "caspersdk": {
+      "baseline": "1.0.4",
+      "port-version": 0
+    },
+    "libcput": {
+      "baseline": "0.3.0",
+      "port-version": 0
+    },
+    "matterfirpc": {
+      "baseline": "0.2.60",
+      "port-version": 0
+    },
+    "opentxs": {
+      "baseline": "1.265.2",
+      "port-version": 0
     }
+  }
 }
