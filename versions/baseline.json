@@ -17,7 +17,7 @@
       "port-version": 0
     },
     "libcput": {
-      "baseline": "0.3.1",
+      "baseline": "0.3.4",
       "port-version": 0
     },
     "matterfirpc": {
