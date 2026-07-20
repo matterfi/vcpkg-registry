@@ -4,11 +4,15 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
 
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   enable_automerge:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Enable Pull Request Automerge
-          run: gh pr merge --merge --auto "1"
-          env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
