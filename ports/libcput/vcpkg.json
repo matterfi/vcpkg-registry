@@ -1,6 +1,7 @@
 {
   "name": "libcput",
   "version": "0.3.6",
+  "port-version": 1,
   "description": "Cross-platform UI-test harness library with a UIDriver contract and platform accessibility adapters.",
   "homepage": "https://github.com/matterfi/libcput",
   "dependencies": [
