@@ -1,7 +1,7 @@
 # Linux builds need system libatspi2.0-dev and pkg-config for libcput's AT-SPI probe.
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
-  URL https://github.com/matterfi/libcput.git
+  URL ssh://git@github.com/matterfi/libcput.git
   REF 2bf6b649cb30172871248c7afaa1940a59e4774d
   HEAD_REF main
 )
