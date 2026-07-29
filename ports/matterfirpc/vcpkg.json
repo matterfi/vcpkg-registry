@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.62",
+    "version": "0.2.63",
     "port-version": 0,
     "features": {
         "deploy": {
@@ -74,6 +74,16 @@
             "default-features": false
         },
         {
+            "name": "opentxs",
+            "default-features": false,
+            "features": [
+                "botan-crypto",
+                "botan-tls",
+                "matterfi",
+                "noparallel"
+            ]
+        },
+        {
             "name": "cryptopp",
             "default-features": false
         },
@@ -88,6 +98,10 @@
         },
         {
             "name": "nlohmann-json",
+            "default-features": false
+        },
+        {
+            "name": "openssl",
             "default-features": false
         },
         {
