@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "0.2.63",
+    "version": "1.0.0",
     "port-version": 0,
     "features": {
         "deploy": {
@@ -82,10 +82,6 @@
                 "matterfi",
                 "noparallel"
             ]
-        },
-        {
-            "name": "cryptopp",
-            "default-features": false
         },
         {
             "name": "libsodium",
