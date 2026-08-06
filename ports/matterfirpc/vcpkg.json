@@ -1,6 +1,6 @@
 {
     "name": "matterfirpc",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "port-version": 0,
     "features": {
         "deploy": {
@@ -12,9 +12,6 @@
                     "platform": "!(android | ios)"
                 }
             ]
-        },
-        "privacy-cash": {
-            "description": "Enable privacy cash support"
         },
         "test": {
             "description": "Build tests",
@@ -82,11 +79,6 @@
                 "matterfi",
                 "noparallel"
             ]
-        },
-        {
-            "name": "libsodium",
-            "default-features": false,
-            "version>=": "1.0.19#4"
         },
         {
             "name": "magic-enum",
