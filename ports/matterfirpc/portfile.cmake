@@ -14,6 +14,7 @@ vcpkg_check_features(
   OUT_FEATURE_OPTIONS FEATURE_OPTIONS
   FEATURES
     deploy        MATTERFIRPC_ENABLE_DEPLOY
+    privacy-cash  MATTERFIRPC_ENABLE_PRIVACY_CASH
 )
 
 vcpkg_cmake_configure(
