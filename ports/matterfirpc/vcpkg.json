@@ -1,7 +1,7 @@
 {
     "name": "matterfirpc",
-    "version": "1.1.0",
-    "port-version": 1,
+    "version": "1.2.0",
+    "port-version": 0,
     "features": {
         "deploy": {
             "description": "Implement Contract::deploy",
