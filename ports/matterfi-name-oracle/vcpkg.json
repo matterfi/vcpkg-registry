@@ -1,0 +1,70 @@
+{
+    "name": "matterfi-name-oracle",
+    "version": "1.0.0",
+    "port-version": 2,
+    "description": "MatterFi name oracle",
+    "homepage": "https://github.com/matterfi/name_oracle",
+    "dependencies": [
+        {
+            "name": "boost-endian",
+            "default-features": false
+        },
+        {
+            "name": "boost-json",
+            "default-features": false
+        },
+        {
+            "name": "boost-program-options",
+            "default-features": false
+        },
+        {
+            "name": "boost-scope",
+            "default-features": false
+        },
+        {
+            "name": "boost-unordered",
+            "default-features": false
+        },
+        {
+            "name": "cmakerc",
+            "default-features": false
+        },
+        {
+            "name": "libguarded",
+            "default-features": false
+        },
+        {
+            "name": "opentxs",
+            "version>=": "3.0.0",
+            "default-features": false
+        },
+        {
+            "name": "otcommon",
+            "version>=": "3.3.1",
+            "default-features": false
+        },
+        {
+            "name": "qtbase",
+            "default-features": false
+        },
+        {
+            "name": "sqlite3",
+            "default-features": false
+        },
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
+            "host": true
+        },
+        {
+            "name": "zeromq",
+            "default-features": false,
+            "features": [
+                "curve"
+            ]
+        }
+    ]
+}
