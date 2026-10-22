@@ -29,7 +29,7 @@
       "port-version": 2
     },
     "opentxs": {
-      "baseline": "3.1.0",
+      "baseline": "3.2.0",
       "port-version": 0
     }
   }
