@@ -21,7 +21,7 @@
       "port-version": 0
     },
     "matterfirpc": {
-      "baseline": "7.1.0",
+      "baseline": "8.0.0",
       "port-version": 0
     },
     "matterfi-name-oracle": {
