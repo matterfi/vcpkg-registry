@@ -2,7 +2,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL ssh://git@github.com/matterfi/libcput.git
-  REF 143300c73f47e81a0905840d071f7f85bbdb2c4a
+  REF 130f6b0ad93c670972e0ebf4189c6cf90e3a6d04
   HEAD_REF main
 )
 
@@ -24,5 +24,5 @@ vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
 file(
   WRITE
   "${CURRENT_PACKAGES_DIR}/share/libcput/LIBCPUT_SHA.txt"
-  "143300c73f47e81a0905840d071f7f85bbdb2c4a\n"
+  "130f6b0ad93c670972e0ebf4189c6cf90e3a6d04\n"
 )
