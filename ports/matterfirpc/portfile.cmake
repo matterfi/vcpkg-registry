@@ -6,7 +6,7 @@ vcpkg_from_git(
   URL
   ssh://git@github.com/matterfi/matterfirpc.git
   REF
-  3edf00ff0861977273bde651df27d8d361f1060a
+  027f78121385e28af0ce549ec87e56e9691c13ad
   HEAD_REF
   master)
 
@@ -17,7 +17,7 @@ vcpkg_check_features(
     privacy-cash  MATTERFIRPC_ENABLE_PRIVACY_CASH
 )
 
-set(MFRPC_VERSION_STRING "8.0.1-0-g3edf00f")
+set(MFRPC_VERSION_STRING "9.0.0-0-g027f781")
 
 vcpkg_cmake_configure(
   SOURCE_PATH
